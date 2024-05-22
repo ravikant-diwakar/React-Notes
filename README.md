@@ -1,8 +1,7 @@
 # The-Ultimate-React-Course
 
-https://github.com/ravikant-diwakar/The-Ultimate-React-Course?tab=readme-ov-file#working-with-components-props-and-jsx
 
-## Review of Essential JavaScript for React
+## 📌Review of Essential JavaScript for React
 
 #### Destructuring
 - Destructuring allows us to extract values from arrays or properties from objects and assign them to variables.
@@ -150,6 +149,10 @@ https://github.com/ravikant-diwakar/The-Ultimate-React-Course?tab=readme-ov-file
   console.log(todos);
   ```
   (`await` pauses the execution until the promise resolves.)
+
+|--------------------|
+| React Fundamentals |
+|--------------------|
 
 ## 📌 Working with Components, Props, and JSX
 
