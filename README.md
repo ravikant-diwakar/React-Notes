@@ -150,8 +150,8 @@
   ```
   (`await` pauses the execution until the promise resolves.)
 
-                                                                               | React Fundamentals |
-                                                                               |---------------------|
+# 📌React Fundamentals
+
 
 ## 📌 Working with Components, Props, and JSX
 
