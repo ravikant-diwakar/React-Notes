@@ -125,16 +125,17 @@
   ```
 
 #### Promises
-- A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
+- Promises are used for asynchronous operations.
 - Example:
   ```javascript
   fetch("https://jsonplaceholder.typicode.com/todos")
     .then((res) => res.json())
     .then((data) => console.log(data));
   ```
+  (`fetch` returns a promise, and `.then()` handles the resolved value.)
 
 #### Async/Await
-- `async` functions and `await` keywords are used to work with Promises more comfortably.
+- `Async/Await` provides a way to work with asynchronous code in a synchronous manner.
 - Example:
   ```javascript
   async function getTodos() {
@@ -146,3 +147,4 @@
   const todos = getTodos();
   console.log(todos);
   ```
+  (`await` pauses the execution until the promise resolves.)
