@@ -2,8 +2,6 @@
 
 ## Review of Essential JavaScript for React
 
-### Review of Essential JavaScript for React
-
 #### Destructuring
 - Destructuring allows us to extract values from arrays or properties from objects and assign them to variables.
 - Example:
@@ -32,6 +30,7 @@
     pages: 1210,
   };
   ```
+  Here, ...genres spreads out the genres array, and { ...book } spreads out the book object properties.
 
 #### Template Literals
 - Template literals provide an easy way to create strings. They allow embedded expressions, which can be multi-line.
@@ -48,6 +47,7 @@
   const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
   console.log(`The book has ${pagesRange} pages`);
   ```
+This checks if pages is greater than 1000, then assigns the appropriate string.
 
 #### Logical Operators
 - Logical AND (`&&`) and OR (`||`) operators can be used for short-circuit evaluation.
@@ -82,24 +82,28 @@
   ```javascript
   const titles = books.map((book) => book.title);
   ```
+Array ke har element pe operation perform karke naya array create karta hai.
 
 - `filter()`: Filters elements of an array based on a condition.
 - Example:
   ```javascript
   const longBooksWithMovie = books.filter((book) => book.pages > 500 && book.hasMovieAdaptation);
   ```
+Array ke elements ko condition ke basis pe filter karta hai.
 
 - `reduce()`: Reduces the array to a single value.
 - Example:
   ```javascript
   const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
   ```
+Array ke elements ko ek single value mein reduce karta hai, jaise sum calculate karna.
 
 - `sort()`: Sorts elements of an array.
 - Example:
   ```javascript
   const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
   ```
+Array ko sort karta hai, jaise yaha books ko pages ke basis pe ascending order me sort kiya.
 
 #### Adding, Deleting, Updating Objects in an Array
 - Adding:
