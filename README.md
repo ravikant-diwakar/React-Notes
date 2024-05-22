@@ -149,7 +149,7 @@
   ```
   (`await` pauses the execution until the promise resolves.)
 
-### Working with Components, Props, and JSX
+## Working with Components, Props, and JSX
 
 #### Rendering the Root Component and Strict Mode
 - In React v18, we use `ReactDOM.createRoot` to render the root component:
