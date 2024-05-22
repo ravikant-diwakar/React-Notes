@@ -278,6 +278,7 @@
 
 #### Destructuring Props
 - Destructure props for cleaner code.
+- (Props ko directly function parameter me destructure karte hai, taaki code clean rahe)
 - Example:
   ```js
   function Pizza({ pizzaObj: { name, ingredients, price, photoName, soldOut } }) {
@@ -287,6 +288,14 @@
 
 #### React Fragments
 - Use `<React.Fragment>` or `<>` to group multiple elements without adding extra nodes to the DOM.
+- Multiple elements ko group karne ka tareeka without extra nodes in DOM.
+- Example:
+```js
+<React.Fragment>
+  <Header />
+  <Menu />
+</React.Fragment>
+```
 
 #### Setting Classes and Text Conditionally
 - Set classes conditionally using template literals.
