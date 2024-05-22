@@ -1,5 +1,7 @@
 # The-Ultimate-React-Course
 
+https://github.com/ravikant-diwakar/The-Ultimate-React-Course?tab=readme-ov-file#working-with-components-props-and-jsx
+
 ## Review of Essential JavaScript for React
 
 #### Destructuring
@@ -149,7 +151,8 @@
   ```
   (`await` pauses the execution until the promise resolves.)
 
-## Working with Components, Props, and JSX
+## 📌 Working with Components, Props, and JSX
+
 
 #### Rendering the Root Component and Strict Mode
 - In React v18, we use `ReactDOM.createRoot` to render the root component:
