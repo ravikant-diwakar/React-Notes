@@ -241,7 +241,11 @@
 - Use the `.map()` method to render lists of components.
 - Example:
   ```js
-  const pizzas = pizzaData.map(pizza => <Pizza key={pizza.name} pizzaObj={pizza} />);
+  <ul className="pizzas">
+            {pizzas.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+          </ul>
   ```
 
 #### Conditional Rendering with &&
