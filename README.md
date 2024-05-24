@@ -338,6 +338,7 @@
   - (control karta hai ki steps UI mein dikh rahe hain ya nahi, basically open ya close state ko handle karta hai)
 
   ```javascript
+  function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   ```
@@ -401,3 +402,50 @@
   const [isOpen, setIsOpen] = useState(true);
   ```
 
+```javascript
+return (
+  <div>
+    <button className="close" onClick={() => setIsOpen((is) => !is)}>
+      &times;
+    </button>
+```
+
+- **Close Button:**
+  - Yeh button steps section ko toggle karta hai (open/close). 
+  - `onClick` event handler use karke `setIsOpen` function call kiya gaya hai jo `isOpen` state ko true/false karta hai.
+
+```javascript
+    {isOpen && (
+      <div className="steps">
+```
+
+- **Conditional Rendering:**
+  - Agar `isOpen` true hai toh steps section render hoga, warna nahi.
+
+```javascript
+        <div className="numbers">
+          <div className={step >= 1 ? "active" : ""}>1</div>
+          <div className={step >= 2 ? "active" : ""}>2</div>
+          <div className={step >= 3 ? "active" : ""}>3</div>
+        </div>
+```
+  - `step` value ke hisaab se "active" class conditionally apply hoti hai, jo current step ko highlight karti hai.
+
+```javascript
+        <StepMessage step={step}>
+          {messages[step - 1]}
+          <div className="buttons">
+            <Button
+              bgColor="#e7e7e7"
+              textColor="#333"
+              onClick={() => alert(`Learn how to ${messages[step - 1]}`)}
+            >
+              Learn how
+            </Button>
+          </div>
+        </StepMessage>
+```
+
+  - `StepMessage` component current step ka message aur ek button display karta hai.
+  - `messages` array mein step-wise messages hain. `messages[step - 1]` se current step ka message milta hai.
+  - "Learn how" button click karne se ek alert trigger hota hai jo current step ka message show karta hai.
