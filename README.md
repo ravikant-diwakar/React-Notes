@@ -326,3 +326,104 @@
   ```js
   <li className={`pizza ${soldOut ? "sold-out" : ""}`}></li>
   ```
+
+## 📌 State, Events, and Forms in React
+
+#### 1. Building a Steps Component
+- **Component Description:** Steps component manages navigation through different steps using state.
+- **State Variables:**
+  - `step`: Tracks the current step.
+  - `isOpen`: Tracks if the steps section is open or closed.
+- **State Initialization:**
+  ```javascript
+  const [step, setStep] = useState(1);
+  const [isOpen, setIsOpen] = useState(true);
+  ```
+- **Event Handlers:**
+  - `handlePrevious`: Decreases step by 1 if not already at the first step.
+  - `handleNext`: Increases step by 1 if not already at the last step.
+  ```javascript
+  function handlePrevious() {
+    if (step > 1) setStep((s) => s - 1);
+  }
+
+  function handleNext() {
+    if (step < 3) setStep((s) => s + 1);
+  }
+  ```
+
+#### 2. Handling Events the React Way
+- **Event Binding:** Events are bound using JSX syntax.
+- **Example:** Handling a button click to toggle `isOpen` state.
+  ```javascript
+  <button className="close" onClick={() => setIsOpen((is) => !is)}>
+    &times;
+  </button>
+  ```
+
+#### 3. What is State in React?
+- **State**: Data that a component holds over time, necessary for information it needs to remember throughout the app’s lifecycle. Updating state triggers a re-render of the component.
+- **Example Usage:**
+  ```javascript
+  const [step, setStep] = useState(1);
+  ```
+
+#### 4. Creating a State Variable with useState
+- **useState Hook:** Adds state to functional components.
+- **Syntax:** `const [stateVariable, setStateFunction] = useState(initialValue);`
+- **Example:**
+  ```javascript
+  const [step, setStep] = useState(1);
+  ```
+
+#### 5. Don't Set State Manually
+- **Incorrect Way:** Directly modifying state variables.
+  ```javascript
+  // Incorrect
+  test.name = "Fred";
+  setTest({ name: "Fred" });
+  ```
+- **Correct Way:** Using state functions.
+  ```javascript
+  // Correct
+  setStep((s) => s + 1);
+  ```
+
+#### 6. The Mechanics of State
+- **View Update:** React updates the view by re-rendering the component when state changes.
+- **State Persistence:** State is preserved through re-renders.
+- **Re-render Trigger:** Updating state triggers re-rendering of the component.
+- **Example Flow:**
+  1. **Event Handler:** Triggers state update.
+  2. **State Update:** Updates state.
+  3. **Re-render:** React re-renders the component.
+  ```javascript
+  function handleNext() {
+    setStep((s) => s + 1);
+  }
+  ```
+
+#### 7. Adding Another Piece of State
+- **Multiple States:** Use multiple `useState` hooks for managing different pieces of state.
+- **Example:**
+  ```javascript
+  const [isOpen, setIsOpen] = useState(true);
+  ```
+
+#### 8. React Developer Tools
+- **Purpose:** Helps in inspecting and debugging React components.
+- **Features:** View component hierarchy, state, and props.
+
+#### 9. Updating State Based on Current State
+- **Function Form:** Use the function form of the state updater to work with the latest state.
+- **Example:**
+  ```javascript
+  setStep((prevStep) => prevStep + 1);
+  ```
+
+#### 10. More Thoughts About State + State Guidelines
+- **One Component, One State:** Each component has its own state, even if rendered multiple times.
+- **UI as a Function of State:** View UI as a reflection of data changing over time.
+- **Practical Guidelines:**
+  - Use state for any data that changes and needs to be remembered over time.
+  - Avoid using state for data that doesn’t trigger re-renders; use regular variables instead.
