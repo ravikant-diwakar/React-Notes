@@ -333,9 +333,9 @@
 - Steps component manage karte hai navigation through different steps using state variables.
 
   - `step`: Tracks the current step
-    (track karta hai ki user kaun se step pe hai, starting from 1)
+  - (track karta hai ki user kaun se step pe hai, starting from 1)
   - `isOpen`: Tracks if the steps section is open or closed
-    (control karta hai ki steps UI mein dikh rahe hain ya nahi, basically open ya close state ko handle karta hai)
+  - (control karta hai ki steps UI mein dikh rahe hain ya nahi, basically open ya close state ko handle karta hai)
 
   ```javascript
   const [step, setStep] = useState(1);
@@ -343,9 +343,9 @@
   ```
 - **Event Handlers:**
   - `handlePrevious`: Decreases step by 1 if not already at the first step
-    ( user "Previous" button press karta hai to call hota hai, aur ye check karta hai ki agar current step 1 se zyada hai to ek step kam kar do)
+  - ( user "Previous" button press karta hai to call hota hai, aur ye check karta hai ki agar current step 1 se zyada hai to ek step kam kar do)
   - `handleNext`: Increases step by 1 if not already at the last step
-    (user "Next" button press karta hai to call hota hai, aur ye check karta hai ki agar current step 3 se kam hai to ek step badha do.)
+  - (user "Next" button press karta hai to call hota hai, aur ye check karta hai ki agar current step 3 se kam hai to ek step badha do.)
   ```javascript
   function handlePrevious() {
     if (step > 1) setStep((s) => s - 1);
