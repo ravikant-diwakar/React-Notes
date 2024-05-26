@@ -2,8 +2,8 @@
 
 **Creating and Running React App**
 ```bash
-npx create-react-app my-app
-cd my-app
+npx create-react-app@5 my-app
+dir my-app
 npm start
 ```
 
