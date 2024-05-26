@@ -457,3 +457,274 @@ return (
   - "Learn how" button click karne se ek alert trigger hota hai jo current step ka message show karta hai.
 
 ## 📌 New Project: The "Far Away" Travel List
+
+### App.js
+
+```jsx
+import { useState } from "react";
+import Logo from "./Logo";
+import Form from "./Form";
+import PackingList from "./PackingList";
+import Stats from "./Stats";
+
+// Main component of the app
+export default function App() {
+  // items ka state define kiya, jo list of items rakhta h
+  const [items, setItems] = useState([]);
+
+  // Function to add items to the list
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
+  // Function to delete an item from the list
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  // Function to toggle packed status of an item
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
+  // Function to clear the entire list
+  function handleClearList() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+
+    if (confirmed) setItems([]);
+  }
+
+  // Main render method
+  return (
+    <div className="app">
+      <Logo />
+      <Form onAddItems={handleAddItems} />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
+      />
+      <Stats items={items} />
+    </div>
+  );
+}
+```
+
+### Form.js
+
+```jsx
+import { useState } from "react";
+
+// Form component to add new items
+export default function Form({ onAddItems }) {
+  const [description, setDescription] = useState("");  // Item description ka state
+  const [quantity, setQuantity] = useState(1);         // Item quantity ka state
+
+  // Form submission handle karne ka function
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!description) return;
+
+    // Naya item create kiya
+    const newItem = { description, quantity, packed: false, id: Date.now() };
+
+    // Add item function ko call kiya
+    onAddItems(newItem);
+
+    // Form reset karna
+    setDescription("");
+    setQuantity(1);
+  }
+
+  // Form render karna
+  return (
+    <form className="add-form" onSubmit={handleSubmit}>
+      <h3>What do you need for your 😍 trip?</h3>
+      <select
+        value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+      >
+        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+          <option value={num} key={num}>
+            {num}
+          </option>
+        ))}
+      </select>
+      <input
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button>Add</button>
+    </form>
+  );
+}
+```
+
+### Item.js
+
+```jsx
+// Single item component
+export default function Item({ item, onDeleteItem, onToggleItem }) {
+  return (
+    <li>
+      <input
+        type="checkbox"
+        checked={item.packed}
+        onChange={() => onToggleItem(item.id)}
+      />
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+        {item.quantity} {item.description}
+      </span>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
+    </li>
+  );
+}
+```
+
+### PackingList.js
+
+```jsx
+import { useState } from "react";
+import Item from "./Item";
+
+// Packing list component
+export default function PackingList({
+  items,
+  onDeleteItem,
+  onToggleItem,
+  onClearList,
+}) {
+  const [sortBy, setSortBy] = useState("input");  // Sorting criteria ka state
+
+  // Sorted items list create karna
+  let sortedItems;
+
+  if (sortBy === "input") sortedItems = items;
+
+  if (sortBy === "description")
+    sortedItems = items
+      .slice()
+      .sort((a, b) => a.description.localeCompare(b.description));
+
+  if (sortBy === "packed")
+    sortedItems = items
+      .slice()
+      .sort((a, b) => Number(a.packed) - Number(b.packed));
+
+  return (
+    <div className="list">
+      <ul>
+        {sortedItems.map((item) => (
+          <Item
+            item={item}
+            onDeleteItem={onDeleteItem}
+            onToggleItem={onToggleItem}
+            key={item.id}
+          />
+        ))}
+      </ul>
+
+      <div className="actions">
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="input">Sort by input order</option>
+          <option value="description">Sort by description</option>
+          <option value="packed">Sort by packed status</option>
+        </select>
+        <button onClick={onClearList}>Clear list</button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Stats.js
+
+```jsx
+// Stats component to show statistics of the packing list
+export default function Stats({ items }) {
+  // Agar items nahi h to message dikhaye
+  if (!items.length)
+    return (
+      <p className="stats">
+        <em>Start adding some items to your packing list 🚀</em>
+      </p>
+    );
+
+  // Calculate statistics
+  const numItems = items.length;
+  const numPacked = items.filter((item) => item.packed).length;
+  const percentage = Math.round((numPacked / numItems) * 100);
+
+  // Statistics ko render karna
+  return (
+    <footer className="stats">
+      <em>
+        {percentage === 100
+          ? "You got everything! Ready to go ✈️"
+          : ` 💼 You have ${numItems} items on your list, and you already packed ${numPacked} (${percentage}%)`}
+      </em>
+    </footer>
+  );
+}
+```
+
+### Key Concepts Explained
+
+#### Building the Layout
+- Components like `Logo`, `Form`, `PackingList`, and `Stats` are arranged in the main `App` component to form the layout.
+
+#### Rendering the Item List
+- `PackingList` component takes care of rendering the list of items using the `Item` component.
+
+#### Building a Form and Handling Submissions
+- The `Form` component allows users to add new items, managing the form inputs using state and handling form submission.
+
+#### Controlled Elements
+- Form inputs are controlled components with their values managed by React state.
+
+#### State vs. Props
+- State (`useState`) is used within components to manage local data.
+- Props are used to pass data and functions between components.
+
+#### "Thinking in React"
+- Break the UI into a component hierarchy.
+- Implement the static version of UI first, then add interactivity.
+
+#### Fundamentals of State Management
+- Use state hooks (`useState`) to manage the application's dynamic data.
+
+#### Thinking About State and Lifting State Up
+- Lift state up to the nearest common ancestor component when multiple components need access to the same state.
+
+#### Reviewing "Lifting Up State"
+- In this project, state is managed in the `App` component and passed down to child components via props.
+
+#### Deleting an Item: More Child-to-Parent Communication
+- Child components (`Item`) communicate with parent components (`PackingList` and `App`) to delete items.
+
+#### Updating an Item: Complex Immutable Data Operation
+- Use map and spread operator to update state immutably when toggling packed status of items.
+
+#### Derived State
+- State derived from other state, like sorted items or statistics, is computed as needed rather than stored.
+
+#### Calculating Statistics as Derived State
+- The `Stats` component calculates and displays derived statistics based on the items' state.
+
+#### Sorting Items
+- Items are sorted in the `PackingList` component based on selected criteria.
+
+#### Clearing the List
+- `handleClearList` function in `App` component clears all items after user confirmation.
+
+This breakdown covers the essential aspects of state, events, and forms in the "Far Away" Travel List project, demonstrating the fundamental concepts of React development.
