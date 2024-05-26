@@ -1,6 +1,13 @@
 # The-Ultimate-React-Course
 
+**Creating and Running React App**
+```bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
 
+This initializes a new React app called "my-app" and launches the development server.
 ## 📌Review of Essential JavaScript for React
 
 #### Destructuring
