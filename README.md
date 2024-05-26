@@ -7,7 +7,6 @@ dir my-app
 npm start
 ```
 
-This initializes a new React app called "my-app" and launches the development server.
 ## 📌Review of Essential JavaScript for React
 
 #### Destructuring
