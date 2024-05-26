@@ -461,13 +461,6 @@ return (
 ### App.js
 
 ```jsx
-import { useState } from "react";
-import Logo from "./Logo";
-import Form from "./Form";
-import PackingList from "./PackingList";
-import Stats from "./Stats";
-
-// Main component of the app
 export default function App() {
   // items ka state define kiya, jo list of items rakhta h
   const [items, setItems] = useState([]);
@@ -520,8 +513,6 @@ export default function App() {
 ### Form.js
 
 ```jsx
-import { useState } from "react";
-
 // Form component to add new items
 export default function Form({ onAddItems }) {
   const [description, setDescription] = useState("");  // Item description ka state
@@ -570,33 +561,9 @@ export default function Form({ onAddItems }) {
 }
 ```
 
-### Item.js
-
-```jsx
-// Single item component
-export default function Item({ item, onDeleteItem, onToggleItem }) {
-  return (
-    <li>
-      <input
-        type="checkbox"
-        checked={item.packed}
-        onChange={() => onToggleItem(item.id)}
-      />
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.quantity} {item.description}
-      </span>
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
-    </li>
-  );
-}
-```
-
 ### PackingList.js
 
 ```jsx
-import { useState } from "react";
-import Item from "./Item";
-
 // Packing list component
 export default function PackingList({
   items,
@@ -606,7 +573,7 @@ export default function PackingList({
 }) {
   const [sortBy, setSortBy] = useState("input");  // Sorting criteria ka state
 
-  // Sorted items list create karna
+  // Sorted items list create karna h
   let sortedItems;
 
   if (sortBy === "input") sortedItems = items;
@@ -678,53 +645,7 @@ export default function Stats({ items }) {
 }
 ```
 
-### Key Concepts Explained
-
-#### Building the Layout
-- Components like `Logo`, `Form`, `PackingList`, and `Stats` are arranged in the main `App` component to form the layout.
-
-#### Rendering the Item List
-- `PackingList` component takes care of rendering the list of items using the `Item` component.
-
-#### Building a Form and Handling Submissions
-- The `Form` component allows users to add new items, managing the form inputs using state and handling form submission.
-
-#### Controlled Elements
-- Form inputs are controlled components with their values managed by React state.
-
 #### State vs. Props
 - State (`useState`) is used within components to manage local data.
 - Props are used to pass data and functions between components.
 
-#### "Thinking in React"
-- Break the UI into a component hierarchy.
-- Implement the static version of UI first, then add interactivity.
-
-#### Fundamentals of State Management
-- Use state hooks (`useState`) to manage the application's dynamic data.
-
-#### Thinking About State and Lifting State Up
-- Lift state up to the nearest common ancestor component when multiple components need access to the same state.
-
-#### Reviewing "Lifting Up State"
-- In this project, state is managed in the `App` component and passed down to child components via props.
-
-#### Deleting an Item: More Child-to-Parent Communication
-- Child components (`Item`) communicate with parent components (`PackingList` and `App`) to delete items.
-
-#### Updating an Item: Complex Immutable Data Operation
-- Use map and spread operator to update state immutably when toggling packed status of items.
-
-#### Derived State
-- State derived from other state, like sorted items or statistics, is computed as needed rather than stored.
-
-#### Calculating Statistics as Derived State
-- The `Stats` component calculates and displays derived statistics based on the items' state.
-
-#### Sorting Items
-- Items are sorted in the `PackingList` component based on selected criteria.
-
-#### Clearing the List
-- `handleClearList` function in `App` component clears all items after user confirmation.
-
-This breakdown covers the essential aspects of state, events, and forms in the "Far Away" Travel List project, demonstrating the fundamental concepts of React development.
