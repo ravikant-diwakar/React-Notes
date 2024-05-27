@@ -348,13 +348,19 @@ npm start
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   ```
-  | Current Step: 1                | Current Step: 2                | Current Step: 3                | Current Step: 3                | Current Step: 2                | Current Step: 1                |
-|--------------------------------|--------------------------------|--------------------------------|--------------------------------|--------------------------------|--------------------------------|
-| User presses "Next"            | User presses "Next"            | User presses "Next"            | User presses "Previous"        | User presses "Previous"        | User presses "Previous"        |
-| `handleNext` check: `if (step < 3)` (1 < 3, true) | `handleNext` check: `if (step < 3)` (2 < 3, true) | `handleNext` check: `if (step < 3)` (3 < 3, false) | `handlePrevious` check: `if (step > 1)` (3 > 1, true) | `handlePrevious` check: `if (step > 1)` (2 > 1, true) | `handlePrevious` check: `if (step > 1)` (1 > 1, false) |
-| Step becomes 2                 | Step becomes 3                 | Step remains 3                 | Step becomes 2                 | Step becomes 1                 | Step remains 1                 |
+  | Current Step: 1                | Current Step: 2                | Current Step: 3                |
+|--------------------------------|--------------------------------|--------------------------------|
+| User presses "Next"            | User presses "Next"            | User presses "Next"            |
+| `handleNext` check: `if (step < 3)` (1 < 3, true) | `handleNext` check: `if (step < 3)` (2 < 3, true) | `handleNext` check: `if (step < 3)` (3 < 3, false) |
+| Step becomes 2                 | Step becomes 3                 | Step remains 3                 |
 
-  
+| Current Step: 3                | Current Step: 2                | Current Step: 1                |
+|--------------------------------|--------------------------------|--------------------------------|
+| User presses "Previous"        | User presses "Previous"        | User presses "Previous"        |
+| `handlePrevious` check: `if (step > 1)` (3 > 1, true) | `handlePrevious` check: `if (step > 1)` (2 > 1, true) | `handlePrevious` check: `if (step > 1)` (1 > 1, false) |
+| Step becomes 2                 | Step becomes 1                 | Step remains 1                 |
+
+ 
 - **Event Handlers:**
   - `handlePrevious`: Decreases step by 1 if not already at the first step
   - ( user "Previous" button press karta hai to call hota hai, aur ye check karta hai ki agar current step 1 se zyada hai to ek step kam kar do)
