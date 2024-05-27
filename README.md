@@ -348,7 +348,7 @@ npm start
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   ```
-  | Current Step: 1                | Current Step: 2                | Current Step: 3                |
+| Current Step: 1                | Current Step: 2                | Current Step: 3                |
 |--------------------------------|--------------------------------|--------------------------------|
 | User presses "Next"            | User presses "Next"            | User presses "Next"            |
 | `handleNext` check: `if (step < 3)` (1 < 3, true) | `handleNext` check: `if (step < 3)` (2 < 3, true) | `handleNext` check: `if (step < 3)` (3 < 3, false) |
