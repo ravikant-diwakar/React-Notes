@@ -1,4 +1,4 @@
-# The-Ultimate-React-Course
+# React-Notes
 
 **Creating and Running React App**
 ```bash
