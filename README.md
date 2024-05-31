@@ -661,3 +661,103 @@ export default function Stats({ items }) {
 - State (`useState`) is used within components to manage local data.
 - Props are used to pass data and functions between components.
 
+
+
+
+
+
+
+### 📌 Components, Composition, and More
+
+#### Prop Drilling:
+- Passing props through multiple layers of components.
+- Can make code messy and reduce readability.
+- **Example:**
+  ```jsx
+  // App.js
+  function App() {
+    const [query, setQuery] = useState("");
+    return <SearchBar query={query} setQuery={setQuery} />;
+  }
+  
+  // SearchBar.js
+  function SearchBar({ query, setQuery }) {
+    return (
+      <div>
+        <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+      </div>
+    );
+  }
+  ```
+
+#### Fixing Prop Drilling with Composition:
+- Use composition to solve prop drilling issues.
+- Create higher-order components to encapsulate shared functionality.
+- **Example:**
+  ```jsx
+  // App.js
+  function App() {
+    const data = useData();
+    return <DisplayData data={data} />;
+  }
+  ```
+
+#### Using Composition to Make a Reusable Box:
+- Create container components with flexible children elements.
+- Enhances modularity and scalability.
+- **Example:**
+  ```jsx
+  // Box.js
+  function Box({ children }) {
+    return <div className="box">{children}</div>;
+  }
+  ```
+
+#### Passing Elements as Props (Alternative to Children):
+- Pass JSX elements as props to components.
+- Provides flexibility in composing UI elements.
+- **Example:**
+  ```jsx
+  // App.js
+  function App() {
+    return (
+      <Box header={<Header />} footer={<Footer />}>
+        <MainContent />
+      </Box>
+    );
+  }
+  ```
+
+#### Props as a Component API:
+- Define props as an interface for component usage.
+- Specify prop types and default values for clarity.
+- **Example:**
+  ```jsx
+  // Button.js
+  function Button({ onClick, disabled }) {
+    // Implementation details...
+  }
+  ```
+
+#### Improving Reusability with Props:
+- Use props to customize component behavior and appearance.
+- Enhance flexibility by allowing dynamic configurations.
+- **Example:**
+  ```jsx
+  // Card.js
+  function Card({ title, content, variant }) {
+    // Implementation details...
+  }
+  ```
+
+#### PropTypes:
+- Enforce type checking on component props.
+- Catch type-related bugs early and improve code reliability.
+- **Example:**
+  ```jsx
+  // Button.js
+  Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+  };
+  ```
