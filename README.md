@@ -680,7 +680,7 @@ export default function Stats({ items }) {
     return <SearchBar query={query} setQuery={setQuery} />;
   }
   
-  // SearchBar.js
+  // SearchBar
   function SearchBar({ query, setQuery }) {
     return (
       <div>
@@ -707,7 +707,7 @@ export default function Stats({ items }) {
 - Enhances modularity and scalability.
 - **Example:**
   ```jsx
-  // Box.js
+  // Box
   function Box({ children }) {
     return <div className="box">{children}</div>;
   }
@@ -733,7 +733,7 @@ export default function Stats({ items }) {
 - Specify prop types and default values for clarity.
 - **Example:**
   ```jsx
-  // Button.js
+  // Button
   function Button({ onClick, disabled }) {
     // Implementation details...
   }
@@ -744,7 +744,7 @@ export default function Stats({ items }) {
 - Enhance flexibility by allowing dynamic configurations.
 - **Example:**
   ```jsx
-  // Card.js
+  // Card
   function Card({ title, content, variant }) {
     // Implementation details...
   }
@@ -755,7 +755,7 @@ export default function Stats({ items }) {
 - Catch type-related bugs early and improve code reliability.
 - **Example:**
   ```jsx
-  // Button.js
+  // Button
   Button.propTypes = {
     onClick: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
