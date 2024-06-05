@@ -486,30 +486,40 @@ return (
 
 ### 📌 Components, Composition, and More
 
-#### Prop Drilling:
-- Passing props through multiple layers of components.
-- Can make code messy and reduce readability.
+### Component Categories
 
-#### Fixing Prop Drilling with Composition:
-- Use composition to solve prop drilling issues.
-- Create higher-order components to encapsulate shared functionality.
+**Stateless/Presentational Components:**
+- No state management, only present data.
+- Examples: Logo, NumResults.
 
-#### Using Composition to Make a Reusable Box:
-- Create container components with flexible children elements.
-- Enhances modularity and scalability.
-  
-#### Passing Elements as Props (Alternative to Children):
-- Pass JSX elements as props to components.
-- Provides flexibility in composing UI elements.
+**Stateful Components:**
+- Manage their own state.
+- Examples: Search, MovieDetails.
 
-#### Props as a Component API:
-- Define props as an interface for component usage.
-- Specify prop types and default values for clarity.
+**Structural Components:**
+- Provide the structure or layout of the app.
+- Examples: App, NavBar.
 
-#### Improving Reusability with Props:
-- Use props to customize component behavior and appearance.
-- Enhance flexibility by allowing dynamic configurations.
+### Fixing Prop Drilling with Composition
 
-#### PropTypes:
-- Enforce type checking on component props.
-- Catch type-related bugs early and improve code reliability.
+**Technique:**
+- Use children to directly pass components where needed.
+
+**Example:**
+```jsx
+function NavBar({ children }) {
+  return <nav className="nav-bar">{children}</nav>;
+}
+```
+
+### Props as a Component API
+
+**Define Props:**
+- `maxRating`, `color`, `size`, `onSetRating`
+
+**Example:**
+```jsx
+function StarRating({ maxRating = 5, color = "#fcc419", size = 48, onSetRating }) {
+  // Component logic
+}
+```
