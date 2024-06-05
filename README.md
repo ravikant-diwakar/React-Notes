@@ -526,8 +526,6 @@ function StarRating({ maxRating = 5, color = "#fcc419", size = 48, onSetRating }
 
 ### Library vs. Framework
 
-Sure, here's the information presented in tabular form:
-
 |    Framework    |        Library         |
 |-----------------|------------------------|
 | - All-in-one solution with pre-included tools. | - Freedom to choose the best tools. |
