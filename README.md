@@ -526,22 +526,16 @@ function StarRating({ maxRating = 5, color = "#fcc419", size = 48, onSetRating }
 
 ### Library vs. Framework
 
-| Framework  |  Library   |
-| ------------------------|
-| - All-in-one solution with pre-included tools.    | - Freedom to choose the best tools. |
-| - Complete structure for large-scale applications.   | - Pieces of code shared for specific tasks. |
+Sure, here's the information presented in tabular form:
+
+|    Framework    |        Library         |
+|-----------------|------------------------|
+| - All-in-one solution with pre-included tools. | - Freedom to choose the best tools. |
+| - Complete structure for large-scale applications. | - Pieces of code shared for specific tasks. |
 | - Includes routing, styling, HTTP management, etc. | - React is a view library, focuses on UI rendering. |
 | - Batteries included, but less flexible. | - Needs external libraries for routing, styling, etc. |
 | - Example: Angular, Vue, Svelte. | - More flexibility, tailor-made solutions. |
 |   |   - Example: React. |
-  
-#### Library
-- Freedom to choose the best tools.
-- Pieces of code shared for specific tasks.
-- React is a view library, focuses on UI rendering.
-- Needs external libraries for routing, styling, etc.
-- More flexibility, tailor-made solutions.
-  - Example: React.
 
 #### React's Ecosystem
 - Large third-party library ecosystem.
