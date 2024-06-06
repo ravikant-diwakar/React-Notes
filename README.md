@@ -484,7 +484,7 @@ return (
 
 
 
-### 📌 Components, Composition, and More
+## 📌 Components, Composition, and More
 
 ### Component Categories
 
