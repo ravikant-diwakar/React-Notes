@@ -1,4 +1,4 @@
-# `React-Notes`
+# ``React-Notes``
 
 **Creating and Running React App**
 ```bash
