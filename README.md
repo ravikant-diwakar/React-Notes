@@ -187,16 +187,6 @@ npm start
     return <h1>Fast React Pizza Co.</h1>;
   }
   ```
-
-#### What is JSX?
-- JSX (JavaScript XML) is a syntax extension of JavaScript that looks similar to HTML.
-- It allows us to write HTML elements in JavaScript and place them in the DOM.
-- Each JSX element is converted to a `React.createElement` function call.
-
-Syntax:
-
-```const element = <h1>JavaScript XML</h1>;```
-
 #### Creating More Components
 - Break down the UI into smaller components.
 - Example of creating a `Menu` component:
@@ -209,6 +199,18 @@ Syntax:
     );
   }
   ```
+
+
+#### What is JSX?
+- JSX (JavaScript XML) is a syntax extension of JavaScript that looks similar to HTML.
+- It allows us to write HTML elements in JavaScript and place them in the DOM.
+- Each JSX element is converted to a `React.createElement` function call.
+
+Syntax:
+
+```js
+const element = <h1>JavaScript XML</h1>;
+```
 
 #### JavaScript Logic in Component
 - We can use JavaScript expressions inside JSX using `{}`.
