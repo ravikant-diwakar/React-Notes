@@ -189,7 +189,7 @@ npm start
   ```
 
 #### What is JSX?
-- JSX is a syntax extension of JavaScript that looks similar to HTML.
+- JSX (JavaScript XML)is a syntax extension of JavaScript that looks similar to HTML.
 - It allows us to write HTML elements in JavaScript and place them in the DOM.
 - Each JSX element is converted to a `React.createElement` function call.
 
