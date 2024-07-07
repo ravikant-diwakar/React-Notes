@@ -1,3 +1,6 @@
+![180px-React_Logo_SVG svg](https://github.com/ravikant-diwakar/React-Notes/assets/110620635/00634298-b1a0-45e4-9228-15f8fa03d4f8)
+
+
 # React-Notes
 
 **Creating and Running React App**
