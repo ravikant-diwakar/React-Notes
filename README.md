@@ -10,7 +10,7 @@ dir my-app
 npm start
 ```
 
-## 📌Review of Essential JavaScript for React
+## 📌 Review of Essential JavaScript for React
 
 #### Destructuring
 - Destructuring allows us to extract values from arrays or properties from objects and assign them to variables.
