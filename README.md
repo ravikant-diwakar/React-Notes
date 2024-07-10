@@ -6,7 +6,6 @@
 **Creating and Running React App**
 ```bash
 npx create-react-app@5 my-app
-dir my-app
 ```
 ```bash
 npx create-react-app@5 my-app
