@@ -9,6 +9,11 @@ npx create-react-app@5 my-app
 dir my-app
 npm start
 ```
+```bash
+npx create-react-app@5 my-app
+dir my-app
+npm start
+```
 
 ## 📌 Review of Essential JavaScript for React
 
