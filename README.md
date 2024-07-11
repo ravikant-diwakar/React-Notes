@@ -20,10 +20,10 @@ npm start
 - Destructuring allows us to extract values from arrays or properties from objects and assign them to variables.
 - Example:
   ```javascript
-    const book = getBook(3);
-    const { title, author, pages, publicationDate, genres, hasMovieAdaptation } = book;
-    console.log(author, title, genres);
-    ```
+  const book = getBook(3);
+  const { title, author, pages, publicationDate, genres, hasMovieAdaptation } = book;
+  console.log(author, title, genres);
+  ```
 
 #### Array Destructuring
 - Extract elements from an array.
