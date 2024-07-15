@@ -515,7 +515,7 @@ return (
 
 ### Fixing Prop Drilling with Composition
 
-**Technique:**
+**Technique :**
 - Use children to directly pass components where needed.
 
 **Example:**
