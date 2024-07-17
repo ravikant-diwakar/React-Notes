@@ -527,7 +527,7 @@ function NavBar({ children }) {
 
 ### Props as a Component API
 
-**Define Props:**
+**Define Props :**
 - `maxRating`, `color`, `size`, `onSetRating`
 
 **Example:**
