@@ -450,7 +450,7 @@ return (
       <div className="steps">
 ```
 
-- **Conditional Rendering:**
+- **Conditional Rendering :**
   - Agar `isOpen` true hai toh steps section render hoga, warna nahi.
 
 ```javascript
