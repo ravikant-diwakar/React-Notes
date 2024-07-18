@@ -3,7 +3,6 @@
 
 
 
-
 # 📖 REACT NOTES
 
 **Creating and Running React App**
