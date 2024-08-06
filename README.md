@@ -531,7 +531,7 @@ function NavBar({ children }) {
 **Define Props :**
 - `maxRating`, `color`, `size`, `onSetRating`
 
-**Example:**
+**Example :**
 ```jsx
 function StarRating({ maxRating = 5, color = "#fcc419", size = 48, onSetRating }) {
   // Component logic
