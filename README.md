@@ -363,7 +363,7 @@ const element = <h1>JavaScript XML</h1>;
   const [isOpen, setIsOpen] = useState(true);
   ```
  
-- **Event Handlers:**
+- **Event Handlers :**
   - `handlePrevious`: Decreases step by 1 if not already at the first step
   - ( user "Previous" button press karta hai to call hota hai, aur ye check karta hai ki agar current step 1 se zyada hai to ek step kam kar do)
   - `handleNext`: Increases step by 1 if not already at the last step
