@@ -553,3 +553,24 @@ function StarRating({ maxRating = 5, color = "#fcc419", size = 48, onSetRating }
 - Large third-party library ecosystem.
 - Popular libraries: React Router, React Query, Redux, Styled Components, Tailwind.
 
+
+## 📌 7 React Hooks
+
+1. **useState**
+
+`useState` adds state to functional components.
+
+It returns the current state and a function to update it.
+
+```javascript
+import React, { useState } from 'react';
+
+function Counter() {
+
+  const [count, setCount] = useState(0);
+
+  // more code
+}
+```
+
+Here, `count` starts at `0`, and `setCount` updates it.
