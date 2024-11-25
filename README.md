@@ -566,11 +566,11 @@ It returns the current state and a function to update it.
 import React, { useState } from 'react';
 
 function Counter() {
-
   const [count, setCount] = useState(0);
 
   // more code
 }
+
 ```
 
 Here, `count` starts at `0`, and `setCount` updates it.
@@ -586,15 +586,15 @@ It runs after every render, but you can control when it runs by passing dependen
 import React, { useState, useEffect } from 'react';
 
 function TitleUpdater() {
-
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
+    document.title = `You clicked ${count} times`; // Fixed the template string
   }, [count]);
 
   // more code
 }
+
 ```
 
 This updates the document title whenever `count` changes.
@@ -609,11 +609,19 @@ import React, { useContext } from 'react';
 const MyContext = React.createContext();
 
 function DisplayValue() {
-
   const value = useContext(MyContext);
 
-  // more code
+  return <div>{value}</div>;
 }
+
+function App() {
+  return (
+    <MyContext.Provider value="Hello, World!">
+      <DisplayValue />
+    </MyContext.Provider>
+  );
+}
+
 ```
 
 `useContext` retrieves the value provided by `MyContext` and displays it.
@@ -637,11 +645,16 @@ function reducer(state, action) {
 }
 
 function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState); // Fixed destructuring
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  // more code
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+    </div>
+  );
 }
+
 ```
 
 
@@ -653,15 +666,20 @@ function Counter() {
 import React, { useRef } from 'react';
 
 function FocusInput() {
-
   const inputRef = useRef(null);
 
   const focusInput = () => {
     inputRef.current.focus();
   };
 
-  // more code
+  return (
+    <div>
+      <input ref={inputRef} type="text" />
+      <button onClick={focusInput}>Focus the input</button>
+    </div>
+  );
 }
+
 ```
 
 You can use this reference to directly interact with an input element.
@@ -675,13 +693,18 @@ You can use this reference to directly interact with an input element.
 import React, { useMemo } from 'react';
 
 function ExpensiveCalculation({ a, b }) {
+  const computeExpensiveValue = (a, b) => {
+    // Assume some expensive computation here
+    return a + b; // Simplified example
+  };
 
   const memoizedValue = useMemo(() => {
     return computeExpensiveValue(a, b);
   }, [a, b]);
 
-  // more code
+  return <div>{memoizedValue}</div>;
 }
+
 ```
 
 This caches the result and only recalculates when `a` or `b` changes.
@@ -700,8 +723,13 @@ function CallBackApp({ a, b }) {
     doSomething(a, b);
   }, [a, b]);
 
-  // more code
+  return (
+    <div>
+      <button onClick={memoizedCallback}>Call Callback</button>
+    </div>
+  );
 }
+
 ```
 
 This ensures `doSomething` only changes when `a` or `b` changes.
