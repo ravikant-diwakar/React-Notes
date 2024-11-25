@@ -644,5 +644,71 @@ function Counter() {
 }
 ```
 
+
+#### 5. **useRef**
+
+`useRef` allows you to access DOM elements or persist values across renders without causing a re-render.
+
+```javascript
+import React, { useRef } from 'react';
+
+function FocusInput() {
+
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  // more code
+}
+```
+
+You can use this reference to directly interact with an input element.
+
+
+#### 6. **useMemo**
+
+`useMemo` optimizes performance by memoizing a calculation, ensuring it only recalculates when dependencies change.
+
+```javascript
+import React, { useMemo } from 'react';
+
+function ExpensiveCalculation({ a, b }) {
+
+  const memoizedValue = useMemo(() => {
+    return computeExpensiveValue(a, b);
+  }, [a, b]);
+
+  // more code
+}
+```
+
+This caches the result and only recalculates when `a` or `b` changes.
+
+
+#### 7. **useCallback**
+
+`useCallback` memoizes functions, preventing them from being recreated unnecessarily.
+
+```javascript
+import React, { useCallback } from 'react';
+
+function CallBackApp({ a, b }) {
+
+  const memoizedCallback = useCallback(() => {
+    doSomething(a, b);
+  }, [a, b]);
+
+  // more code
+}
+```
+
+This ensures `doSomething` only changes when `a` or `b` changes.
+
+`useCallback` differs from `useMemo` in that `useMemo` memoizes the result of a computation, while `useCallback` memoizes the function itself.
+
+
+
 This setup helps handle state transitions in a structured way.
 
