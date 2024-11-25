@@ -556,7 +556,7 @@ function StarRating({ maxRating = 5, color = "#fcc419", size = 48, onSetRating }
 
 ## 📌 7 React Hooks
 
-1. **useState**
+#### 1. **useState**
 
 `useState` adds state to functional components.
 
@@ -574,3 +574,27 @@ function Counter() {
 ```
 
 Here, `count` starts at `0`, and `setCount` updates it.
+
+
+#### 2. **useEffect**
+
+`useEffect` handles side effects like data fetching or updating the DOM.
+
+It runs after every render, but you can control when it runs by passing dependencies.
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function TitleUpdater() {
+
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  }, [count]);
+
+  // more code
+}
+```
+
+This updates the document title whenever `count` changes.
