@@ -618,5 +618,31 @@ function DisplayValue() {
 
 `useContext` retrieves the value provided by `MyContext` and displays it.
 
+#### 4. **useReducer**
 
+`useReducer` is used for managing complex state logic. It returns the current state and a dispatch function.
+
+```javascript
+import React, { useReducer } from 'react';
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    default:
+      return state;
+  }
+}
+
+function Counter() {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // more code
+}
+```
+
+This setup helps handle state transitions in a structured way.
 
