@@ -598,3 +598,25 @@ function TitleUpdater() {
 ```
 
 This updates the document title whenever `count` changes.
+
+#### 3. **useContext**
+
+`useContext` accesses global data or shared state directly, without the need for prop drilling.
+
+```javascript
+import React, { useContext } from 'react';
+
+const MyContext = React.createContext();
+
+function DisplayValue() {
+
+  const value = useContext(MyContext);
+
+  // more code
+}
+```
+
+`useContext` retrieves the value provided by `MyContext` and displays it.
+
+
+
